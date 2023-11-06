@@ -1,0 +1,16 @@
+{
+  "name": "mymusicdb",
+  "version": "1.0.0",
+  "description": "myMusicDB project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhishek Addagatla",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.4",
+    "jquery": "^3.7.1"
+  }
+}
