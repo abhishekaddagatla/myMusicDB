@@ -22,7 +22,34 @@ async function addSongToDatabase(name, genre, artist, length) {
   
     return data;
 }
-  
-  module.exports = {
-    addSongToDatabase,
-  };
+
+async function getSongs() {
+  const { data, error } = await supabase
+    .from('songs')
+    .select('*');
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+}
+
+async function deleteSong(id) {
+  const { data, error } = await supabase
+    .from('songs')
+    .delete()
+    .match({ id });
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+}
+
+module.exports = {
+  addSongToDatabase,
+  getSongs,
+  deleteSong
+};

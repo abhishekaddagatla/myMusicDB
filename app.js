@@ -26,6 +26,40 @@ app.post('/add-song', async (req, res) => {
   }
 });
 
+app.post('/get-songs', async (req, res) => {
+  try {
+    const data = await supabaseFunctions.getSongs();
+    res.json(data);
+  } catch (error) {
+    console.error('Error getting songs:', error);
+    res.status(500).send('An error occurred while getting songs.');
+  }
+});
+
+app.post('/sign-up', async (req, res) => {
+  const {email , password} = req.body;
+
+  try {
+    const data = await supabaseFunctions.signUp(email, password);
+    res.json(data);
+  } catch (error) {
+    console.error('Error signing up:', error);
+    res.status(500).send('An error occurred while signing up.');
+  }
+});
+
+app.post('/delete-song', async (req, res) => {
+  const {id} = req.body;
+
+  try {
+    const data = await supabaseFunctions.deleteSong(id);
+    res.json(data);
+  } catch (error) {
+    console.error('Error deleting song:', error);
+    res.status(500).send('An error occurred while deleting song.');
+  }
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

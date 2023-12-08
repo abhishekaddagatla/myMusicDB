@@ -10,3 +10,9 @@ html, body {
     display: flex;
     justify-content: center;
 }
+
+.login-form {
+    /* add vertical spacing between each div formgroup inside these divs*/
+    margin-bottom: 10px;
+
+}
