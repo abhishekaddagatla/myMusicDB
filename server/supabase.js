@@ -80,6 +80,22 @@ async function getSongs(search_query) {
   return data;
 }
 
+// async function deleteSong(id) {
+//   try {
+//     // Use the rpc method to call the prepared statement or stored procedure
+//     const { data, error } = await supabase
+//       .rpc("delete_song", { id }) // replace "delete_song" with your actual function name
+
+//     if (error) {
+//       throw error;
+//     }
+
+//     return data;
+//   } catch (error) {
+//     throw error;
+//   }
+// }
+
 async function deleteSong(id) {
   const { data, error } = await supabase
     .from('songs')
